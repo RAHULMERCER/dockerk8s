@@ -34,6 +34,13 @@ spec:
         prometheus.io/port: "8888"
         prometheus.io/path: /actuator/prometheus        
     spec:
+      topologySpreadConstraints:
+      - maxSkew: 1
+        topologyKey: kubernetes.io/hostname
+        whenUnsatisfiable: DoNotSchedule
+        labelSelector:
+          matchLabels:
+            app: topology-host
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
