@@ -29,7 +29,7 @@ spec:
         app: frontend
     spec:
       containers:
-      - image: brainupgrade/sba-frontend:nginx
+      - image: rahulmercer/sba-frontend:main
         name: frontend
         imagePullPolicy: Always
         ports:
